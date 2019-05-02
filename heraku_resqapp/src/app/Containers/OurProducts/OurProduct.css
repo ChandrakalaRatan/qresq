@@ -1,0 +1,53 @@
+
+.resq-product {
+    height: 800px;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    left: 0;
+    top: 0;
+    padding: 0;
+    background-color:rgb(43, 40, 40);
+    
+  }
+ 
+  .resq-product-top-banner{
+    margin-left: 40px;
+    margin-top: 0px;
+    padding: 0;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    background-color: rgb(136, 122, 122);
+  }
+  
+  .resq-product-down-banner{
+    margin-left:  400px;
+    margin-top: -200px;
+    padding: 0;
+    height: 400px;
+    width: 600px;
+     border-radius: 10px;
+     background-color: rgb(56, 43, 43);
+     
+  }
+    .product-button{
+      margin-left: 15px;
+      margin-top: 30px;
+      margin-bottom: 300px;
+      height: 1.8rem;
+      width: 6rem;
+      font-size: 1.2rem;
+      border: 2px rgb(115, 137, 145) #4755a3;
+      -moz-float-edge: 1;
+      background-color: white;
+      border-end-end-radius: round;
+      color: rgb(104, 104, 212);
+      
+    }
+    .product-button:hover{
+      color: #e95224;
+      background-color: rgb(128, 166, 238);
+      border: 2px solid #4299fc;
+    }
+    

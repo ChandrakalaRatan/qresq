@@ -1,0 +1,58 @@
+
+  .panel-summery-button{
+    width: 150px;
+    height: 45px;
+    position: absolute;
+    align-content: center;
+    align-items: center;
+    top: 750px;
+    left: 30%;
+    background-color: transparent;
+  }
+  .summary-button-group{
+    position: absolute;
+    display: inline-block;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width:150px;
+    animation: mymove1 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes mymove1 {
+    from {bottom: -100px;}
+    to {bottom: 50px;}
+  }
+  .see-full-summary-button
+  {
+    margin-left: 0px;
+  }
+  .see-social-media-sector-button
+  {
+    margin-left: 250px;
+  }
+ 
+    .see-full-summary-button,
+    .see-social-media-sector-button
+    {
+    position: absolute;
+    height: 45px;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 1.1em;
+    outline-color: rgba(0, 0, 0, 0.6);
+    outline-style: none;
+    outline-width: .001em;
+    width: 250px;
+    color: white;
+    }
+  .see-full-summary-button:hover,
+  .see-full-summary-button:active,
+  .see-social-media-sector-button:hover,
+  .see-social-media-sector-button:active
+  {
+    background-color: rgb(136, 122, 122);
+    outline-color: rgb(136, 122, 122);
+ }
+
+  

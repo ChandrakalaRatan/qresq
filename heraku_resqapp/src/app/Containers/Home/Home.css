@@ -1,0 +1,166 @@
+.home {
+  margin-top:10px;
+  height: 800px;
+  width: 100%;
+  display: flex;
+  margin-left: 0;
+  margin-top: 0;
+  left: 0;
+  top: 0;
+  padding: 0;
+  background-color:rgb(29, 28, 28);
+  
+}
+.home-left-banner {
+  margin-left: 0px;
+  padding: 0;
+  height: 90%;
+  width: 80%;
+  border-radius: 10px;
+  background-color: rgb(29, 28, 28);
+}
+.home-right-banner {
+ margin-left:  0px;
+ padding: 0;
+ height: 90%;
+ width: 80%;
+  border-radius: 10px;
+  background-color: rgb(29, 28, 28);
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slider{
+  align-self: relative;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* crop the image*/
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+
+ 
+}
+
+.img{
+  
+  margin: 0;
+  width: 100%;
+}
+
+.arrow-left{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  margin-left: 10%;
+  width: 0;
+  height: 0;
+  left: 5vh;
+
+  border-style: solid;
+  background-color: transparent;
+  border-width: 30px 40px 30px 0;
+  border-color: transparent rgb(88, 14, 14) transparent transparent;
+  margin-left: 30px;
+}
+.arrow-right{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  width: 0;
+  height: 0;
+  right: 5vh;
+
+  border-style: solid;
+  background-color: transparent;
+  border-width: 30px 0px 30px 40px;
+  border-color: transparent transparent transparent rgb(88, 14, 14);
+  margin-right: 30px;
+}
+
+.arrow-left :disabled{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  margin-left: 10%;
+  width: 0;
+  height: 0;
+  left: 5vh;
+
+  border-style: solid;
+  background-color: transparent;
+  border-width: 30px 40px 30px 0;
+  border-color: transparent rgb(43, 22, 161) transparent transparent;
+  margin-left: 30px;
+ 
+}
+.arrow-right :disabled{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  width: 0;
+  height: 0;
+  right: 5vh;
+
+  border-style: solid;
+  background-color: transparent;
+  border-width: 30px 0px 30px 40px;
+  border-color: transparent transparent transparent rgb(43, 22, 161);
+  margin-right: 30px;
+}
+
+.toolbar__navigation-items ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.toolbar__navigation-items li{
+  padding: 0 0.5rem;
+}
+.toolbar__navigation-items a:hover,
+.toolbar__navigation-items a :active{
+  color: #fa923f;
+}
+
+@media (max-width: 768px){
+  .toolbar__navigation-items{
+      display: none;
+  }
+}
+@media (max-width: 768px){
+  .toolbar__toggle-button{
+      display: none;
+  }
+  .toolbar__logo{
+      margin-left: 0;
+  }
+}

@@ -1,0 +1,53 @@
+
+  
+  .panel-right-side,
+  .panel-left-side  {
+    width: 350px;
+    height: 500px;
+    background-color: transparent;
+    position: absolute;
+    animation: mymove 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes mymove {
+    from {bottom: -100px;}
+    to {bottom: 100px;}
+  }
+
+  .panel-right-side{
+    left: 0;
+  }
+  .panel-left-side {
+    right: 0;
+  }
+  
+  
+  .panel-center-side {
+    width: 650px;
+    height: 400px;
+    position: absolute;
+    top: 250px;
+    left: 400px;
+    background-color: trans;
+  }
+  .panel-text-display{
+    width: 400px;
+    height:100%;
+    
+    position: absolute;
+    display: table-cell;
+    vertical-align: middle;
+    align-content: center;
+  }
+ 
+  .panel-label-header{
+    
+    font-size: 1.1em;
+    color: rgb(219, 215, 215);
+  }
+  .panel-label-value{
+    font-size: 1.5em;
+    color: white;
+  }
+  
