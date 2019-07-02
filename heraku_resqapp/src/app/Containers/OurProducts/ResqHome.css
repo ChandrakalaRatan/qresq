@@ -1,12 +1,3 @@
-/* Colors */
-/*
-dark blue: #476A6F
-light blue: #258EA6
-dark green: #519E8A
-medium green: #7EB09B
-light green: #A3C4BC
-*/
-
 .resq-new-window{
   position: fixed;
   width: 100%;
@@ -137,139 +128,62 @@ light green: #A3C4BC
  }
 
 
-
-
 /* 
-.enter-location,
-.from-date,
-.to-date{
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-} */
-/* .date-input-group, */
 
-
-/* .enter-location-group
+.panel-summery-button{
+  width: 530px;
+  height: 45px;
+  position: absolute;
+  align-content: center;
+  align-items: center;
+  top: 700px;
+  left: 30%;
+  background-color: black;
+  animation: mymove1 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards; 
+}
+.summary-button-group{
+  display: inline-block;
+  width:530px;
+  animation: mymove1 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+@keyframes mymove1 {
+  from {bottom: -100px;}
+  to {bottom: 50px;}
+}
+.full-summary-button,
+.social-media-sector-button
 {
-  display: inline-block;
-  clear: left;
-  text-align: left;
-  width:400px;
-} */
-/* .input{
-  background-color: rgb(43, 40, 40);
-  outline-color: aliceblue;
-  outline-style: ridge; 
-  outline: .02ch;
-  font-size: .8rem;
-  color: white;
-  width: 110px;
-} */
+
+height: 45px;
+background-color: rgba(0, 0, 0, 0.6);
+font-size: 1.1em;
+outline-color: rgba(0, 0, 0, 0.6);
+outline-style: none;
+outline-width: .001em;
+width: 250px;
+color: white;
+}
+
+.full-summary-button
+{
+  margin-left: 0px;
+}
+.social-media-sector-button
+{
+  margin-left: 250px;
+}
 
 
-
-
-  
-   /* .resq__location{
-  
-    margin-left: 480px;
-    margin-top: -60px;
-    padding: 0;
-    width:330px;
-    height: 60px;
-    background-color:  rgb(43, 40, 40);  
-  } */
-
-/* .cell-header{
-  margin-left: 100px;
-  margin-top:  -60px;
-  padding: 0;
-  width:300px;
-  height: 30px;
-  text-align: center;
-  align-content: center;
-  align-items: center;
-  display: inline-block;
- 
-  display: inline-flex;
-  position: relative;
-  
-  } */
-  /* .cell-value{
-  margin-left:0px;
-  width: 100px;
-  text-align: center;
-  align-content: center;
-  align-items: center;
-  color: rgb(231, 67, 67);
-  display: inline-block;
-  padding: 0px;
-  display: inline-flex;
-  position: relative;
-  } */
-/* .resq-card-banner{
-  
-  margin-top: 0;
-  color: #fa923f;
-  text-decoration: none;
-  height: 50px;
-  width: 100%;
-  font-size: 1.2rem;
-  text-align: center;
-  background-color: white;
-} */
-/* .cellrow{
-margin-left:300px;
-margin-top: 0;
-padding: 0;
-height: 25px;
-width: 600px;
-
-} */
-
-/* .resq-card-header{
-  margin: 0; 
-  color: #fa923f;
-  text-decoration: none;
-  font-size: 1.2rem;
-  text-align: center;
-} */
-/* .resq-card{
-    align-self: center;
-    margin: 5%;
-    height: 70%;
-    width: 90%; 
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 10px;
-    
-} */
-/* .resq-right-side-signbox{
-  margin-left: 950px;
-  margin-top: 70px;
-  
-  position: fixed;
-  width: 300px;
-  height: 200px;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 10px;
-} */
-/* .resq-right-side-banner{
-  margin-left: 950px;
-  margin-top: 300px;
-  padding: 0;
-  display: flex;
-  position: fixed;
-  width: 300px;
-  height: 400px;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 10px;
-} */
-
-
+.full-summary-button:hover,
+.full-summary-button:active,
+.social-media-sector-button:hover,
+.social-media-sector-button:active
+{
+  background-color: rgb(136, 122, 122);
+  outline-color: rgb(136, 122, 122);
+}
+ */

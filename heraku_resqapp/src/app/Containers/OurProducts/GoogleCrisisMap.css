@@ -1,0 +1,88 @@
+.panel-left-menu{
+    width: 250px;
+    height: 550px;
+    background-color: rgba(54, 53, 53, 0.6);
+    position: absolute; 
+    margin-top: 80px;
+    margin-left: 20px;
+    padding: 0px;
+    z-index:3;
+  }
+ 
+  .full-detail-button-group{
+    width: 250px;
+    height: 550px;
+    background-color:rgba(54, 53, 53, 0.6);
+    margin-top: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    
+  }
+.button-div{
+  display: inline-block;
+  height: 30px;
+  background-color:rgba(54, 53, 53, 0.6);
+  width: 250px;
+  margin-left: 0px;
+  margin-top: 5px;
+  text-align: left;
+  border: none;
+  background: none;  
+}
+  /* img {
+  height: 20px;
+  background-color: transparent;
+  width: 20px;
+  margin-top: 5px;
+  margin-left: 0px;
+  text-align: left;
+  
+} */
+.img1{
+  height: 20px;
+  background-color: transparent;
+  width: 20px;
+  /* margin-top: 5px; */
+  margin-left: 30px;
+  text-align: left;
+  
+}
+.shelter-button,
+.rescue-button,
+.food-water-button,
+.relief-button,
+.helpline-button,
+.media-button,
+.medicine-button,
+.tranportation-button,
+.jeep-rescue-button,
+.volunteer-button,
+.drinking-water-button,
+.power-button,
+.clothing-button,
+.ambulance-button{
+  height: 30px;
+  background-color: transparent;
+  font-size: 1.2em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 170px;
+  color: whitesmoke;
+  margin-left: 20px;
+  text-align: left;
+  border: none;
+  background: none;
+ 
+}
+.phone-location-button{
+  height: 35px;
+  background-color: transparent;
+  font-size: .9em;
+  width: 200px;
+  color: white;
+  margin-left: 50px;
+  margin-top: 5px;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+ 

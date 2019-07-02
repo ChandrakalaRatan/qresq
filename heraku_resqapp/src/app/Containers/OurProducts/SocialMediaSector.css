@@ -1,284 +1,342 @@
-.panel-container {
-    margin:100px;
-    width: 75%;
+.social-panel {
+    position: absolute;
+    left:12%;
+    top: 12%;
+    width: 80%;
     height: 550px;
-  }
-  .panel-inner-lower-container {
-    width: 100%;
-    height: 24%;
-    background-color: black;
-    display: inline-block;
-   
-  }
-  .panel-inner-upper-container {
-    width: 100%;
-    height: 74%;
     background-color: transparent;
+  }
+  .social-lower-panel{
+    width: 100%;
+    height: 23%;
+    margin-top: 0%;
+    background-color: rgba(0, 0, 0, 0.6);
     display: inline-block;
   }
-  .panel-inner-upper-right-pie-panel{
-    margin-top: 0;
+  .social-upper-panel{
+    width: 100%;
+    height: 75%;
+    display: inline-block;
+    background-color: white;
+  }
+  .social-inner-upper-right-panel{
+    margin-top: 0%;
+    padding: 0%;
     width: 40%;
-    height: 120%;
+    height: 75%;
     display: inline-block;
-    background-color: rgb(172, 33, 33);
+    background-color: transparent;
+    position: absolute;
   } 
-  .panel-inner-upper-left-button-panel{
+  .social-inner-upper-left-panel{
+    margin-top: 0%;
     width: 60%;
-    height: 100%;
+    height: 75%;
     display: inline-block;
-    background-color: rgb(172, 33, 33);
-    /* background-color: rgb(41, 40, 40); */
+    background-color: transparent;
+    
+    /* background-color: rgb(71, 149, 212); */
   }
 
 
   /*  TOTAL MENTIONS*/
-  .panel-total-mention{
+  .total-mention{
+    margin-top: 0%;
+    padding: 0%;
     width: 100%;
-    height: 100px;
+    height: 40%; 
+    display: inline-block;
     background-color: transparent;
   }
-  .total-mention{
-    margin-left:40px;
-    margin-top: 35px;
-    width: 200px;
-    height: 70px;
-    vertical-align: 1cm;
-    text-align: center;
-    background-color: black;
+  .total-mention-text-div{
+    width: 100%;
+    height: 10%;
+    margin-top: 2%;
+    padding: 0%;
+    display: inline-block;
+    background-color: transparent;
   }
-  .total-mention-label{
-    font-size: 1em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(167, 150, 150);
+  .total-mention-text{
+    margin-left:60px;
+    margin-top: 0px;
+    font-size: 1.2em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+  }
+  .total-mention-value-div{
+    width: 200px;
+    height: 50px;
+    margin-left:60px;
+    margin-top:10px;
+    /* background-color: rgb(167, 150, 150); */
+    background-color:rgba(0, 0, 0, 0.6);
+    text-align: center;
+    
   }
   .total-mention-value{
-    font-size: 1.3em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.3em;
     color: white;
   }
   /*  TOTAL MENTIONS*/
 
 
 /*  OVERALL MENTIONS*/
-  .panel-total-mention-label{
+  .overall-mention-label-div{
     width: 100%;
-    height: 30px;
+    height: 10%;
     background-color: transparent;
   }
   .overall-mention-label{
-    margin-left:40px;
-    font-size: 1em;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(167, 150, 150);
+    margin-left:60px;
+    font-size: 1.2em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.6);
   }
   /*  OVERALL MENTIONS*/
 
 
 /* OVERALL MENTIONS BUTTONs */
-  .panel-overall-mention{
+  .blog-twitter-news-forum-button-div{
     width: 100%;
-    height: 0px;
+    height: 80%;
+    margin: 0;
+    display: inline-block;
     background-color: transparent;
   }
-  .blog-button-div
-  {
-    margin-left:40px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    width: 230px;
-    height: 70px;
+  .blog-div,
+  .news-div,
+  .twitter-div,
+  .forum-div{
+    width: 50%;
+    height: 50%;
+    margin: 0;
+    display: inline-block;
+    background-color: transparent;
+  }
+  .twitter-label-div,
+  .blog-label-div,
+  .news-label-div,
+  .forum-label-div{
+    width: 100%;
+    height: 10%;
+    margin-top:10px;
+    background-color: transparent;
+  }
+  .twitter-label-div,
+  .blog-label-div{
+    margin-left:60px;
+  }
+  .news-label-div,
+  .forum-label-div{
+    margin-left:0px;
+  }
+  .button-header-text{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.6);
+  }
+ 
+  .blog-button-div,
+  .forum-button-div,
+  .twitter-button-div,
+  .news-button-div{
+    margin-top:15px;
+    width: 200px;
+    height: 55px;
     display: inline-block;
     position: absolute;
+  }
+  .blog-button-div{
+    margin-left:60px;
     background-color: rgb(221, 129, 129);
   }
-  .forum-button-div{
-    margin-left:340px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    width: 230px;
-    height: 70px;
-    display: inline-block;
-    position: absolute;
-    background-color: rgb(164, 235, 170);
-  }
   .twitter-button-div{
-    margin-left:40px;
-    margin-top: 140px;
-    margin-bottom: 10px;
-    width: 230px;
-    height: 70px;
-    display: inline-block;
-    position: absolute;
+    margin-left:60px;
     background-color: rgb(152, 183, 230);
   }
+  .forum-button-div{
+    margin-left:0px;
+    background-color: rgb(164, 235, 170);
+  }
   .news-button-div{
-    margin-left:340px;
-    margin-top: 140px;
-    margin-bottom: 10px;
-    width: 230px;
-    height: 70px;
-    display: inline-block;
-    position: absolute;
+    margin-left:0px;
     background-color: rgb(236, 235, 150);
   }
-
-  .blog-button,
-  .forum-button,
-  .twitter-button1,
-  .news-button{
-    margin-bottom: 10px;
-    width: 20px;
-    height: 70px;
-    display: inline-block;
-    position: absolute; 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2em;
-    text-align: start;
-    color: white;
-    
-  }
-  .blog-button:hover,
-  .forum-button:hover,
-  .twitter-button1:hover,
-  .news-button:hover{
-    -webkit-transition: width 2s; 
-    transition: width 2s;
-  } 
-  .blog-button:hover{
-    width: 50px;
-    background-color: rgba(247, 39, 39, 0.945);
-  }
-  .forum-button:hover{
-    width: 100px;
-    background-color: rgb(0, 228, 19);
-  }
-  .twitter-button1:hover{
+  .button{
+    margin-left:60px;
+    margin-top:15px;
     width: 200px;
-    background-color: rgb(1, 40, 100);
-  }
-  .news-button:hover{
-    width: 200px;
-    background-color: rgb(243, 227, 0);
-  }
-  /* .percentage-label{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2em;
-    color: white; 
-  } */
-  .label-div{
-    margin-left:90px;
-    width: 120px;
-    height: 70px;
+    height: 55px;
     display: inline-block;
     position: absolute;
     background-color: transparent;
   }
-  .total-value-label{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2em;
-    color: white; 
+  .button1{
+    margin-left:0px;
+    margin-top:15px;
+    width: 200px;
+    height: 55px;
+    display: inline-block;
+    position: absolute;
+    background-color: transparent;
   }
-  .button-label{
+
+  .blog-shade-div,
+  .forum-shade-div,
+  .twitter-shade-div,
+  .news-shade-div{
+    margin-left:0%;
+    margin-top:0%;
+    height: 55px;
+    display: inline-block;
+    position: absolute; 
+    
+    /* -webkit-transition: width 3s; 
+    transition: width 3s; */
+    animation: slidein 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  .blog-shade-div{
+    background-color: rgba(247, 39, 39, 0.945);
+  }
+  .forum-shade-div{
+    background-color: rgb(0, 228, 19);
+  }
+  .twitter-shade-div{
+    background-color: rgb(59, 137, 255);
+  }
+  .news-shade-div{
+    background-color: rgb(243, 227, 0);
+  }
+
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 0%;
+  }
+
+  to {
+    margin-right: 0%;
+  }
+}
+
+  .percentage1-div,
+  .label-div{
+    height: 55px;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+  }
+  .percentage1-div{
+    width: 55px;
+    margin-left:0px;
+  }
+  .label-div{
+    width: 140px;
+    margin-left:70px;
+  }
+  .button-text{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1em;
-    color: white; 
+    font-size: 2.3em;
+    color: whitesmoke; 
   }
 /* OVERALL MENTIONS BUTTONs */
 
 
 /* LOWER PANEL */
-.overall-sentiment-div{
-  width: 70%;
-  height: 100%;
-  background-color: transparent;
-  display: inline-block;
-}
-.overall-sentiment-label-div{
-  width: 70%;
-  height: 30%;
-  margin-left: 40px;
-  vertical-align: 1cm;
-  text-align: left;
-}
-.overall-sentiment-label{
-  font-size: 1em;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: rgb(167, 150, 150);
-}
- .sentiment-bar{
-   width: 800px;
-   height: 20px;
-   margin-left: 40px;
-   margin-top: 0px;
-   display: inline-block;
-   background-color: rgba(85, 80, 80, 0.6);
- }
- .negative1{
-  display: inline-block;
-  position: absolute;
-  margin-left: 0px;
-  width: 10px;
-  height: 20px;
-  background-color: rgba(113, 196, 80, 0.959);
- }
- .positive{
-  display: inline-block;
-  position: absolute;
-  margin-left:790px;
-  width: 10px;
-  height: 20px;
-  background-color: rgba(54, 139, 235, 0.911);
- }
- .neutral{
-  display: inline-block;
-  position: absolute;
-  width: 300px;
-  height: 20px;
-  background-color: transparent;
- }
- .negative1:hover,
- .positive:hover {
-  -webkit-transition: width 2s; 
-  transition: width 2s;
-}
-.negative1:hover{
-  width: 100px;
-  background-color: rgba(113, 196, 80, 0.959);
- }
- .positive:hover {
-  width: 100px;
-  background-color: rgba(54, 139, 235, 0.911);
-}
-.percentage-div{
-  width: 100%;
-  height: 50%;
-  margin-left:40px;
-  background-color: transparent;
-}
-.negative-percentage,
-.positive-percentage,
-.neutral-percentage{
-  display: inline-block;
-  vertical-align: 1cm;
-  text-align: center;
-  width:33%;
-  font-size: 2em;
-  color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
+    .overall-sentiment-label-div{
+      width: 90%;
+      height: 25%;
+      margin-left: 60px;
+      margin-top: 10px;
+      vertical-align: 1cm;
+      text-align: left;
+      background-color: transparent;
+    }
+        .overall-sentiment-label{
+          font-size: 1.2em;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          color: whitesmoke;
+        }
+    .sentiment-bar{
+      width: 90%;
+      height: 15%;
+      margin-left: 60px;
+      float: left;
+      background-color: white;
+    }
+        .sentiment-bar-negative{
+          position: relative;
+          height: 100%;
+          margin-top:0%;
+          float: left;
+          background-color: rgb(156, 143, 143);
+       
+        }
+        .sentiment-bar-neutral{
+          position: relative;
+          height: 100%;
+          margin-top:0%;
+          float: left;
+          background-color: transparent;
+        }
+        .sentiment-bar-positive{
+          position: relative;
+          height: 100%;
+          margin-top:-1.4%;
+          float: left;
+          background-color: rgba(92, 95, 100, 0.911);
+        }
 
- .description-div{
-  display: inline-block;
-  position: absolute;
-  width: 30%;
-  height: 100%;
- }
- .description-label{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1em;
-  color: white; 
- }
+    .sentiment-bar-percentage-text-div{
+      width: 90%;
+      height: 15%;
+      margin-left:60px;
+      margin-top:0px;
+      display: inline-block;
+      background-color: transparent;
+      
+    }
+
+        .sentiment-bar-negative-percentage-text-div,
+        .sentiment-bar-positive-percentage-text-div,
+        .sentiment-bar-neutral-percentage-text-div{
+          width: 33%;
+          height: 100%;
+          margin-top:0%;
+          background-color: transparent;
+          display: inline-block;
+          position: relative;
+           }
+           .sentiment-bar-negative-percentage-text-div{
+            text-align: left;
+           }
+           .sentiment-bar-positive-percentage-text-div{
+            text-align: right;
+           }
+           .sentiment-bar-neutral-percentage-text-div{
+            text-align: center;
+           }
+        .negative-percentage-text,
+        .neutral-percentage-text,
+        .positive-percentage-text{
+          font-size: 1.2em;
+          color: white;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+  .sentiment-description-text-div{
+        width: 90%;
+        height: 5%;
+        margin-left:60px;
+        background-color: transparent;
+  }
+          .sentiment-description-text{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 1.2em;
+            color: white; 
+          }
  
    
 

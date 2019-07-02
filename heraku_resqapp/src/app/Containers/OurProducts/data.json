@@ -1,0 +1,120 @@
+// [
+//     {"fani": 36737}, {"cyclone": 31934}, {"odisha": 17420}, 
+//         {"cyclonefani": 15427}, {"number": 10985}, {"different": 6562}, 
+//         {"districts": 6253}, {"storm": 5903}, {"helpline": 5843}, 
+//         {"please": 5825}, {"emergency": 5766}, {"situation": 5677}, 
+//         {"issued": 5591}, {"control": 5522}, {"room": 5478}, 
+//         {"odishas": 5372}, {"due": 5336}, {"puri": 5252}, 
+//         {"retweet": 4986}, {"severe": 4602}, {"people": 4597}, 
+//         {"cyclonic": 4532}, {"provide": 4316}, {"may": 4191}, 
+//         {"possible": 4167}, {"safety": 4092}, {"assistance": 3889}, 
+//         {"coast": 3840}, {"bengal": 3817}, {"affected": 3649},
+//          {"government": 3566}, {"take": 3260}, {"central": 3198},
+//           {"india": 3187}, {"wake": 3134}, {"spoke": 3111},
+//            {"fanicyclone": 3032}, {"ready": 2893}, {"high": 2867}, 
+//            {"landfall": 2770}, {"arising": 2714}, {"preparedness": 2638}, 
+//            {"also": 2505}, {"well": 2454}, {"state": 2394}, {"meeting": 2365},
+//             {"hit": 2311}, {"help": 2269}, {"live": 2256}, {"prayers": 2246}
+// ]
+[
+    {
+        "Letter": "A",
+        "Freq": 20	
+    },
+    {
+        "Letter" : "B",
+        "Freq": 12
+    },
+    {
+        "Letter" : "C",
+        "Freq": 47
+    },
+    {
+        "Letter" : "D",
+        "Freq": 34
+    },
+    {
+        "Letter" : "E",
+        "Freq" : 54
+    },
+    {
+        "Letter" : "F",
+        "Freq" : 21
+    },
+    {
+        "Letter" : "G",
+        "Freq" : 57
+    },
+    {
+        "Letter" : "H",
+        "Freq" : 31
+    },
+    {
+        "Letter" : "I",
+        "Freq" : 17
+    },
+    {
+        "Letter" : "J",
+        "Freq" : 5
+    },
+    {
+        "Letter" : "K",
+        "Freq" : 23
+    },
+    {
+        "Letter" : "L",
+        "Freq" : 39
+    },
+    {
+        "Letter" : "M",
+        "Freq" : 29
+    },
+    {
+        "Letter" : "N",
+        "Freq" : 33
+    },
+    {
+        "Letter" : "O",
+        "Freq" : 18
+    },
+    {
+        "Letter" : "P",
+        "Freq" : 35
+    },
+    {
+        "Letter" : "Q",
+        "Freq" : 11
+    },
+    {
+        "Letter" : "R",
+        "Freq" : 45
+    },
+    {
+        "Letter" : "S",
+        "Freq" : 43
+    },
+    {
+        "Letter" : "T",
+        "Freq" : 28
+    },
+    {
+        "Letter" : "U",
+        "Freq" : 26
+    },
+    {
+        "Letter" : "V",
+        "Freq" : 30
+    },
+    {
+        "Letter" : "X",
+        "Freq" : 5
+    },
+    {
+        "Letter" : "Y",
+        "Freq" : 4
+    },
+    {
+        "Letter" : "Z",
+        "Freq" : 2
+    }
+    ]

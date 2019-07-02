@@ -2,6 +2,10 @@ import React from "react";
 import {Button} from 'reactstrap';
 import './OurProduct.css';
 
+import drawBarChart from "./TwitterBarChart";
+import {TwitterHeatMap} from "./TwitterHeatMap";
+import drawPieChart from "./SocialMediaPieChart";
+
 export class OurProduct extends React.Component{
     constructor(props) {
         super(props);
@@ -22,6 +26,7 @@ export class OurProduct extends React.Component{
      
          //window = window.open('http://localhost:8080/resqhome', RESQ, 'height=250,width=250')
           return ReactDOM.createPortal(this.props.children, this.containerEl);
+
     }
     componentWillUnmount() {
         console.log("in componentWillUnmount OURPRODUCT"); 
@@ -29,21 +34,19 @@ export class OurProduct extends React.Component{
         // So we tidy up by closing the window
         this.externalWindow.close();
     }
+
     render() { 
-        console.log("in render OURPRODUCT");                  
+        console.log("in render OURPRODUCT");        
+       // barChartJsonData.map(d=>{d.date=d.date.substring(5,10)}) 
+       // barChartJsonData.map(d=>{d.date=d.date.parse()})          
         return(
             <div className="resq-product">   
                 <div className="resq-product-top-banner">
                     <img src='./product11.jpg' alt="" />
-                     <Button className="product-button" onClick = {this.Demo}>Details</Button> 
-                          
-                </div>
-                <div className="resq-product-down-banner">
-                    <img src="./product12.jpg" alt="" /> 
-                </div>   
-            </div>
+                     <Button className="product-button" onClick = {this.Demo}>Details</Button>       
+                </div> 
+            </div>   
         )                  
     }//render
 }//class
-
 
