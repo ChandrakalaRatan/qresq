@@ -8,6 +8,7 @@
     height: 56px;
     padding: 0;
 }
+
 .toolbar__navigation{
     display: flex;
     height: 100%;
@@ -20,10 +21,10 @@
     margin-left: 1rem;
 }
 .toolbar__logo a{
-    
     color: white;
     text-decoration: none;
     font-size: 3rem;
+
 }
 .toolbar__navigation-items a {
     color:  white;

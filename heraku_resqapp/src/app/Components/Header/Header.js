@@ -8,7 +8,7 @@ export class Header extends Component {
         return (
             <div style={{height: '100%'}}> 
              <Backdrop/>
-             <Toolbar  />
+             <Toolbar/>
             </div>
             
         );
