@@ -1,8 +1,8 @@
 export default function drawPieChart(pieChartJsonData, pieChartSelector){       
  
     // set the dimensions and margins of the graph
-        var width = 450
-        var height = 450
+        var width = 440
+        var height = 440
         var margin = 110
     
     // The radius of the pieplot is half the width or half the height (smallest one). I substract a bit of margin.
@@ -22,7 +22,7 @@ export default function drawPieChart(pieChartJsonData, pieChartSelector){
     // set the color scale
         var color = d3.scale.ordinal()
                 .domain(["Twitter", "Blog", "News", "Forum"])
-                .range(['#98b7e6','#dd8181','#eceb96','#a4ebaa']);
+                .range(['#00C78C','#dd8181','#36DBCA','#a4ebaa']);
     
     // Compute the position of each group on the pie:
         var pie = d3.layout.pie()
@@ -58,21 +58,22 @@ export default function drawPieChart(pieChartJsonData, pieChartSelector){
                .attr("transform", function(d) { 
                         return "translate(" + label1.centroid(d) + ")"; 
                 })
-               .text(function(d) { return d.data.key; })
-               .attr("fill","white")
-               .attr('stroke', 'white')
-               .attr("text-anchor", "middle")
-               .style("font-size", "14px");
-        
-        vis.append("text")
-               .attr("transform", function(d) { 
-                        return "translate(" + label2.centroid(d) + ")"; 
-                })
+            //    .text(function(d) { return d.data.key; })
                .text(function(d) { return d.data.value+"%"; })
-               .style("font-size", "20px")
-               .attr("font-family", "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif")
+               .attr("fill","white")
+               .attr('stroke', 'black')
                .attr("text-anchor", "middle")
-               .attr("fill","a79696")
-               .attr('stroke', 'white');
+               .style("font-size", "20px");
+        
+        // vis.append("text")
+        //        .attr("transform", function(d) { 
+        //                 return "translate(" + label2.centroid(d) + ")"; 
+        //         })
+        //         .text(function(d) { return d.data.value+"%"; })
+        //        .style("font-size", "20px")
+        //        .attr("font-family", "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif")
+        //        .attr("text-anchor", "middle")
+        //        .attr("fill","a79696")
+        //        .attr('stroke', 'white');
    
 }

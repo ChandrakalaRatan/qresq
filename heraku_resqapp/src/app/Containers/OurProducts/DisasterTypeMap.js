@@ -5,17 +5,6 @@ import { AffectedAreaMap } from './AffectedAreaMap';
 import fetchDisasterTypeData from "../OurTechnology/FetchAllDisasterTypeData";
 
 
-//var Router = require('react-router');
-// var AffectedMapView = require('./AffectedAreaMap');
-
-// var Link = Router.Link;
-// var Route = Router.Route;
-// var DefaultRoute = Router.DefaultRoute;
-// var RouteHandler = Router.RouteHandler;
-// import { BrowserRouter } from 'react-router-dom'
-// import { setMaxListeners } from "cluster";
-// import { setFlagsFromString } from "v8";
-
 const options = {
     url: 'https://js.arcgis.com/4.8/'
     //url: 'https://www.arcgis.com/apps/Embed/index.html?webmap=de6c0622b7944b48a3a80c997d6835f2'
@@ -215,6 +204,7 @@ export class DisasterTypeMap extends React.Component{
             sLongitude: 0,
             sLatitude: 0,
             sMapcolor: '',
+            requirementKey: Math.random(),
             sIntensity:'',
             requirementKey: Math.random(),
             sAllDisasterTypeData: [],
@@ -226,8 +216,7 @@ export class DisasterTypeMap extends React.Component{
   
     componentDidMount() {
         console.log("@@@@@@@@@@ entering componentDidMount DISASTERTYPE"); 
-            this.fetchAllDisasterTypeData("COMPONENT DID MOUNT")   
-            //this.componentDidUpdate();
+        this.fetchAllDisasterTypeData("COMPONENT DID MOUNT")   
     } 
     
     fetchAllDisasterTypeData(varstr) { 
@@ -244,8 +233,7 @@ export class DisasterTypeMap extends React.Component{
                             method: "POST",
                             body: JSON.stringify({size: 2000, indexName: 'test_alert'
                             ,filters: this.props.DisasterTypeFilter  
-                        })
-            
+                        })   
                 })
                 .then(response => response.json()) 
                 .then(json => {
@@ -253,10 +241,9 @@ export class DisasterTypeMap extends React.Component{
                         sAllDisasterTypeData: json.results,
                         sAllDisasterTypeDataFlag: true
                     })  
-                    console.log("@@@@@@@@@@ I am in fetchAllDisasterTypeData in DISASTERTYPE",
-                                    JSON.stringify(json));
+                    console.log("@@@@@@@@@@ I am in fetchAllDisasterTypeData in DISASTERTYPE", JSON.stringify(json));
                     this.setState({  //sAllDisasterTypeData: myjson.results,
-                                        requirementKey: Math.random() });
+                                      requirementKey: Math.random() });
                       
                     if(this.state.sAllDisasterTypeDataFlag)
                     {
@@ -266,16 +253,14 @@ export class DisasterTypeMap extends React.Component{
                 .catch(error =>{
                   console.log("ERROR" + error);     
                 })
-          
             } 
             catch (error) {
                 console.log(error);
-            }
-
-         
-            
-            
+            }         
     }
+
+
+ 
 
     componentDidUpdate(){
         console.log("@@@@@@@@@@ entering componentDidUpdate DISASTERTYPE"); 
@@ -291,197 +276,417 @@ export class DisasterTypeMap extends React.Component{
                 MapView,
                 FeatureLayer]) => {
             
-        var lURL = "https://www.arcgis.com/apps/Embed/index.html?webmap=de6c0622b7944b48a3a80c997d6835f2";
-        
-        var featureLayer = new FeatureLayer({
-                            url: lURL
-        });
-        
-        const map = new Map({ 
-            //basemap:  "dark-gray"
-            basemap: "dark-gray-vector"
-            ,spacialReference: featureLayer.spacialReference
-        });
-        
-        // Create the MapView
-        const view = new MapView({
-            container: "DisasterTypeView",
-            map: map,
-            zoom: 2,
-            center: {
-                x: 38.9637,
-                y: 35.2433
-            },
-            spacialReference: featureLayer.spacialReference,
-        });
-        
-        
-        //Plot the markers on the map
-        gDisasterDataArray.map(itemDisaster => 
-        {
-            var locURL='http://localhost:8080/Images/';    
+            var lURL = "https://www.arcgis.com/apps/Embed/index.html?webmap=de6c0622b7944b48a3a80c997d6835f2";
             
-            if(itemDisaster.intensity === 'Green'){
-                if(itemDisaster.disasterType === 'EQ'){
-                    locURL= locURL + "green-earthquake.png";  
-                }
-                else if(itemDisaster.disasterType === 'FL'){
-                    locURL= locURL + "green-flood.png";
-                }
-                else if(itemDisaster.disasterType === 'TC'){
-                    locURL= locURL + "green-storm.png";
-                }
-                else if(itemDisaster.disasterType === 'HU'){
-                    locURL= locURL + "green-humanitarian.png";
-                }      
-            }
-            else if(itemDisaster.intensity === 'Red'){ 
-                if(itemDisaster.disasterType === 'EQ'){
-                    locURL= locURL + "red-earth.png";  
-                }
-                else if(itemDisaster.disasterType === 'FL'){
-                    locURL= locURL + "red-flood.png";
-                }
-                else if(itemDisaster.disasterType === 'TC'){
-                    locURL= locURL + "red-storm.png";
-                }
-                else if(itemDisaster.disasterType === 'HU'){
-                    locURL= locURL + "rhumanitarian-red.png";   
-                }               
-            }
-            else if( itemDisaster.intensity === 'Orange' ){ 
-                if(itemDisaster.disasterType === 'EQ'){
-                    locURL= locURL + "orange-earth.png"; 
-                }
-                else if(itemDisaster.disasterType === 'FL'){
-                    locURL= locURL + "orange-flood.png"; 
-                }
-                else if(itemDisaster.disasterType === 'TC') {
-                    locURL= locURL + "orange-storm.png";   
-                }
-                else if(itemDisaster.disasterType === 'HU'){
-                    locURL= locURL + "orange-humanitarian.png";  
-                }
-            } 
+            var featureLayer = new FeatureLayer({ url: lURL });
             
-            
-            view.graphics.add({
-                    symbol: {
-                        type: "picture-marker",  
-                        url: locURL,
-                        width: "24px",
-                        height: "24px"
-                    },
-                    geometry: {
-                        type: "point",
-                        longitude: Number(itemDisaster.geolocation.lon),
-                        latitude: Number(itemDisaster.geolocation.lat)
-                    }    
-            }); //view.graphics.add   
-        }); // gDisasterDataArray.map 
-      
+            const map = new Map({ 
+                basemap: "dark-gray-vector"
+                ,spacialReference: featureLayer.spacialReference
+            });
         
-        var popUpTemplate = {};
-        var lDiasterName = '';
-        //view.popup.autoOpenEnabled = false;
-        
-
-        //Onclick on the marker find the coordinates
-        view.on("immediate-click", function (event) {   
-            view.hitTest(event).then( function(response) {
+            // Create the MapView
+            const view = new MapView({
+                container: "DisasterTypeView",
+                map: map,
+                zoom: 2,
+                center: {
+                    x: 38.9637,
+                    y: 35.2433
+                },
+                spacialReference: featureLayer.spacialReference,
+            });
+           // view.ui.components = ["attribution"];
+           
+            //Plot the markers on the map
+            gDisasterDataArray.map(itemDisaster => 
+            {
+                var locURL='http://localhost:8080/Images/';    
                 
-                gActionFlag = true;
-                gLongitude = Number(response.screenPoint.mapPoint.longitude);
-                gLatitude = Number(response.screenPoint.mapPoint.latitude);
-                console.log("@@@@@@@@@@screen point","gLongitude: ",gLongitude,"gLatitude: ",gLatitude );
-               
-                var plon = Number(gLongitude);
-                var plat = Number(gLatitude);
-                plon = Math.round(plon * 100) / 100
-                plat = Math.round(plat * 100) / 100
-                var pr = 1;
-                var llat,llon;
-                           
-                //find the closest latitude and longitude check to find which marker is clicked
-                gDisasterDataArray.map(itemDisaster => 
-                {
-                    llat = Number(itemDisaster.geolocation.lat);
-                    llon = Number(itemDisaster.geolocation.lon)
-                    var xlon = plon - llon;
-                    var xlat = plat - llat;
-                    if (((xlon*xlon) + (xlat*xlat))<(pr*pr)) 
-                    {     
-                        if(itemDisaster.disasterType === 'EQ'){
-                            lDiasterName = "Earth Quake";
-                            self.state.sMapcolor = "#ffc802";       
-                        }else if(itemDisaster.disasterType === 'FL'){ 
-                            lDiasterName = "Flood";
-                            self.state.sMapcolor = "#012cff";                   
-                        }else if( itemDisaster.disasterType === 'TC' ){ 
-                            lDiasterName = "Cyclone and Storm";
-                            self.state.sMapcolor = "#f74100";    
-                        }else if(itemDisaster.disasterType ==='HU'){
-                            lDiasterName = "Humanitarian";
-                            self.state.sMapcolor = "#03b52f";    
-                        } 
-                        
-                        popUpTemplate = {
-                             title: lDiasterName +" in " + itemDisaster.country,
-                             content: "<b>Disaster Name:</b>"+ itemDisaster.eventName+"<br>"+
-                            "<b>magnitude:</b> "+ itemDisaster.magnitude +" "+ itemDisaster.unit+"<br>"+
-                            "<b>Date of Occur:</b>"+ itemDisaster.dateOccur+"<br>"+
-                            "<b>Geolocation:</b>"+itemDisaster.geolocation.lat + " " + itemDisaster.geolocation.lon+"</br>",
-                            location: [itemDisaster.geolocation.lat, itemDisaster.geolocation.lon]
-                        };                   
-                        self.state.sSingleDisasterTypeDataRecord = itemDisaster;
-                        self.state.sLongitude = Number(itemDisaster.geolocation.lon);
-                        self.state.sLatitude = Number(itemDisaster.geolocation.lat);  
-                        console.log("@@@@@@@@@@ after the finding the closest to screen points","self.state.sLongitude: ",self.state.sLongitude,"self.state.sLatitude: ",self.state.sLatitude );
-                    }//if
-                });  //map
+                    if(itemDisaster.disasterType === 'EQ'){
+                        lDiasterName = "Earth Quake";
+                        if(itemDisaster.intensity === 'Green'){
+                            locURL= locURL + "green-earthquake.png";  
+                        }
+                        if(itemDisaster.intensity === 'Red'){
+                            locURL= locURL + "red-earthquake.png"; 
+                        }
+                        if( itemDisaster.intensity === 'Orange'){
+                            locURL= locURL + "orange-earthquake.png"; 
+                        }
+                    }
+                    if(itemDisaster.disasterType === 'FL'){
+                        lDiasterName = "Flood";
+                        if(itemDisaster.intensity === 'Green'){
+                            locURL= locURL + "green-flood.png";
+                        }
+                        if(itemDisaster.intensity === 'Red'){
+                            locURL= locURL + "red-flood.png";
+                        }
+                        if( itemDisaster.intensity === 'Orange'){
+                            locURL= locURL + "orange-flood.png"; 
+                        }
+                            
+                    }
+                    if(itemDisaster.disasterType === 'TC'){
+                        lDiasterName = "Cyclone and Storm";
+                        if(itemDisaster.intensity === 'Green'){
+                            locURL= locURL + "green-storm.png";
+                        }
+                        if(itemDisaster.intensity === 'Red'){
+                            locURL= locURL + "red-storm.png";
+                        }
+                        if( itemDisaster.intensity === 'Orange'){
+                            locURL= locURL + "orange-storm.png"; 
+                        }   
+                    }
+                    if(itemDisaster.disasterType === 'HU'){
+                        lDiasterName = "Humanitarian";
+                        if(itemDisaster.intensity === 'Green'){
+                            locURL= locURL + "green-humanitarian.png";
+                        }
+                        if(itemDisaster.intensity === 'Red'){
+                            locURL= locURL + "red-humanitarian.png"; 
+                        }
+                        if( itemDisaster.intensity === 'Orange'){
+                            locURL= locURL + "orange-humanitarian.png";    
+                        }
+                    }    
 
+                    view.graphics.add({
+                            symbol: {
+                                type: "picture-marker",  
+                                url: locURL,
+                                width: "24px",
+                                height: "24px"
+                            },
+                            geometry: {
+                                type: "point",
+                                longitude: Number(itemDisaster.geolocation.lon),
+                                latitude: Number(itemDisaster.geolocation.lat)
+                            }    
+                    }); //view.graphics.add   
+            }); // gDisasterDataArray.map 
+        
+   
+            var popUpTemplate = {};
+            var lDiasterName = '';
+            var TemplateContent ={};
 
-                if(self.state.sSingleDisasterTypeDataRecord.intensity !== 'Green')
-                {
-                    
-                    console.log("i am inside green intensity if",self.state.sSingleDisasterTypeDataRecord.intensity);
-                    
-                    var opts = {
-                        duration: 2000, 
-                        easing: "linear "  
-                    };
-                                
-                    view.goTo({
-                        zoom: view.zoom + 3,
-                        center: [
-                                    self.state.sLongitude,
-                                    self.state.sLatitude 
-                                ]
-                    },opts);
-                    window.addEventListener("mouseup",function(event)
-                    {  
-                        if (gActionFlag)
-                            ReactDOM.render(
-                                    <AffectedAreaMap  
-                                        latitude={self.state.sLatitude} 
-                                        longitude={self.state.sLongitude} 
-                                        mapcolor ={self.state.sMapcolor}
-                                        DisasterDataArray = {gDisasterDataArray}
-                                        SingleDisasterDataRecord={self.state.sSingleDisasterTypeDataRecord}
-                                />,document.getElementById('DisasterTypeView'));
-                    });//window.addEventListener 
-                    //gActionFlag = false;
-                }
-                else
-                {
-                    view.popup.visible = true;
-                    view.popup.open(popUpTemplate);        
-                }//else
-            });//hitTest 
-        }); //view.on
-        gActionFlag = false;
+            view.on("immediate-click", function (event) 
+            {
+                console.log("@@@@@@@@@@ first event", event);
+                var opts = {
+                    duration: 2000, 
+                    easing: "linear "  
+                };
+                view.goTo({
+                    zoom: view.zoom + 3,
+                    center:  view.toMap({ x: event.x, y: event.y })
+                },opts);
+            });
+
+            view.on("double-click", function (event) 
+            { 
+                console.log("@@@@@@@@@@ second event", event);
+                view.hitTest(event).then( function(response) 
+                {    
+                    gActionFlag = true;
+                    gLongitude = Number(response.screenPoint.mapPoint.longitude);
+                    gLatitude = Number(response.screenPoint.mapPoint.latitude);
+                    console.log("@@@@@@@@@@screen point","gLongitude: ",gLongitude,"gLatitude: ",gLatitude );
+                
+                    var plon = Number(gLongitude);
+                    var plat = Number(gLatitude);
+                    plon = Math.round(plon * 100) / 100
+                    plat = Math.round(plat * 100) / 100
+                    var pr = 1;
+                    var llat,llon;
+                            
+                    //find the closest latitude and longitude check to find which marker is clicked
+                    gDisasterDataArray.map(itemDisaster => 
+                    {
+                        llat = Number(itemDisaster.geolocation.lat);
+                        llon = Number(itemDisaster.geolocation.lon)
+                        var xlon = plon - llon;
+                        var xlat = plat - llat;
+                        if (((xlon*xlon) + (xlat*xlat))<(pr*pr)) 
+                        {     
+                            self.state.sSingleDisasterTypeDataRecord = itemDisaster;
+                            self.state.sLongitude = Number(itemDisaster.geolocation.lon);
+                            self.state.sLatitude = Number(itemDisaster.geolocation.lat);  
+                            console.log("@@@@@@@@@@ after the finding the closest to screen points","self.state.sLongitude: ",self.state.sLongitude,"self.state.sLatitude: ",self.state.sLatitude );
+                            var centerPoint = view.center.clone();
+                            TemplateContent=    "<b>Disaster Name:</b>"+ itemDisaster.eventName+"<br>"+
+                                                "<b>magnitude:</b> "+ itemDisaster.magnitude +" "+ itemDisaster.unit+"<br>"+
+                                                "<b>Date of Occur:</b>"+ itemDisaster.dateOccur+"<br>"+
+                                                "<b>Geolocation:</b>"+itemDisaster.geolocation.lat + " " + itemDisaster.geolocation.lon+"</br>";
+                            
+                            // if( itemDisaster.intensity === 'Red' || itemDisaster.intensity === 'Orange' )
+                            // {
+                            //     TemplateContent =   TemplateContent  +
+                            //                         "<a href= 'http://localhost:8080/resqhome'"+
+                            //                         "target='{ReactDOM.render( <AffectedAreaMap   latitude={self.state.sLatitude} longitude={self.state.sLongitude} DisasterDataArray = {gDisasterDataArray} SingleDisasterDataRecord={self.state.sSingleDisasterTypeDataRecord} />,document.getElementById('DisasterTypeView')); } '>"+
+                            //                         "Detail Disaster Report</a>"
+                            // }
+                            popUpTemplate = {
+                                title: lDiasterName +" in " + itemDisaster.country,
+                                location: centerPoint,
+                                fetchFeatures: true,
+                                content: TemplateContent
+                            };
+                            if( itemDisaster.intensity === 'Green' )
+                                view.popup.open(popUpTemplate); 
+                            if( itemDisaster.intensity === 'Red' || itemDisaster.intensity === 'Orange' ){
+                                // view.popup.on("trigger-action", function(event){
+                                    ReactDOM.render(
+                                        <AffectedAreaMap  
+                                            // key={self.props.buttonClick}
+                                            latitude={self.state.sLatitude} 
+                                            longitude={self.state.sLongitude} 
+                                            mapcolor ={self.state.sMapcolor}
+                                            DisasterDataArray = {gDisasterDataArray}
+                                            SingleDisasterDataRecord={self.state.sSingleDisasterTypeDataRecord}
+                                        />,document.getElementById('DisasterTypeView'));
+                                 
+                                //});
+                            }
+
+                        }//if
+                    });  //gDisasterDataArray.map
+                });//hitTest 
+                console.log("i am outside hittest");      
+            }); //view.on
+            console.log("@@@@@@@@@@ still outside view.on");
+            gActionFlag = false;
         }); //then
-    } 
+    }    
+                       
+                            // var opts = {
+                            //     duration: 2000, 
+                            //     easing: "linear "  
+                            // };
+                            // view.goTo({
+                            //     zoom: view.zoom + 5,
+                            //     center:  view.toMap({ x: event.x, y: event.y })
+                            // },opts);
+                            // console.log("@@@@@@@@@@ event", event);
+                            // event.stopPropagation();
+
+                            
+                    
+                            // window.addEventListener("mouseup",function(event)
+                            // {  
+
+                            //     view.popup.autoCloseEnabled=false;
+                            //     view.popup.visible = true;
+                            //     view.popup.open(popUpTemplate); 
+                            //     console.log("i am inside green intensity else",self.state.sSingleDisasterTypeDataRecord.intensity);
+                            //     if( self.state.sSingleDisasterTypeDataRecord.intensity === 'Red' ||
+                            //     self.state.sSingleDisasterTypeDataRecord.intensity === 'Orange')
+                            //     {
+                            //     if (gActionFlag)
+                            //     {
+                            //         ReactDOM.render(
+                            //                 <AffectedAreaMap  
+                            //                 // key={self.props.buttonClick}
+                            //                     latitude={self.state.sLatitude} 
+                            //                     longitude={self.state.sLongitude} 
+                            //                     mapcolor ={self.state.sMapcolor}
+                            //                     DisasterDataArray = {gDisasterDataArray}
+                            //                     SingleDisasterDataRecord={self.state.sSingleDisasterTypeDataRecord}
+                            //             />,document.getElementById('DisasterTypeView'));
+                            //     }
+                            //     }
+                            // });//window.addEventListener 
+ 
+            // view.on("immediate-click", function (event) { 
+            //     var opts = {
+            //         duration: 2000, 
+            //         easing: "linear "  
+            //     };
+            //     view.goTo({
+            //         zoom: view.zoom + 5,
+            //         center:  view.toMap({ x: event.x, y: event.y })
+            //     },opts); 
+            //     console.log("@@@@@@@@@@view.on first");
+                
+            // });
+            
+            // function disableZooming(view) 
+            // {
+            //                 view.popup.dockEnabled = true;
+            //                 // Removes the zoom action on the popup
+            //                 view.popup.actions = [];
+                    
+            //                 // prevents zooming with the + and - keys
+            //                 view.on("key-down", function(event) {
+            //                   var prohibitedKeys = ["+", "-", "Shift", "_", "="];
+            //                   var keyPressed = event.key;
+            //                   if (prohibitedKeys.indexOf(keyPressed) !== -1) {
+            //                     event.stopPropagation();
+            //                   }
+            //                 });
+            //                 view.on("mouse-wheel", function(event) {
+            //                     event.stopPropagation();
+            //                 });
+            //                 view.on("double-click", function(event) {
+            //                     event.stopPropagation();
+            //                 });
+            //                 view.on("double-click", ["Control"], function(event) {
+            //                     event.stopPropagation();
+            //                 });
+            //                 view.on("drag", function(event) {
+            //                     event.stopPropagation();
+            //                 });
+            //                 view.on("drag", ["Shift"], function(event) {
+            //                     event.stopPropagation();
+            //                 });
+            //                 view.on("drag", ["Shift", "Control"], function(event) {
+            //                     event.stopPropagation();
+            //                 });
+            //                 return view;
+            // }
+            // var opts = {
+                //     duration: 2000, 
+                //     easing: "linear "  
+                // };
+                // view.goTo({
+                //     zoom: view.zoom + 5,
+                //     center:  view.toMap({ x: event.x, y: event.y })
+                // },opts); 
+                // view.when(disableZooming);
+     // var lGreenInstensityFlag=false;
+                    // if(self.state.sSingleDisasterTypeDataRecord.intensity === 'Green')
+                    // {
+                       // console.log("i am inside green intensity if",self.state.sSingleDisasterTypeDataRecord.intensity);
+                        // view.popup.autoCloseEnabled=false;
+                        // view.popup.visible = true;
+                        // view.popup.open(popUpTemplate);    
+                        // lGreenInstensityFlag=true;  
+                    // }//else
+                    // if( self.state.sSingleDisasterTypeDataRecord.intensity === 'Red' ||
+                    //     self.state.sSingleDisasterTypeDataRecord.intensity === 'Orange')
+                   // {
+                        // window.addEventListener("mouseup",function(event)
+                        // { 
+       // }
+                        // view.when(disableZooming);
+                         
+                        // function disableZooming(view) {
+                        //     view.popup.dockEnabled = true;
+                        //     // Removes the zoom action on the popup
+                        //     view.popup.actions = [];
+                    
+                        //     // prevents zooming with the + and - keys
+                        //     view.on("key-down", function(event) {
+                        //       var prohibitedKeys = ["+", "-", "Shift", "_", "="];
+                        //       var keyPressed = event.key;
+                        //       if (prohibitedKeys.indexOf(keyPressed) !== -1) {
+                        //         event.stopPropagation();
+                        //       }
+                        //     });
+                        //     view.on("mouse-wheel", function(event) {
+                        //         event.stopPropagation();
+                        //     });
+                        //     view.on("double-click", function(event) {
+                        //         event.stopPropagation();
+                        //     });
+                        //     view.on("double-click", ["Control"], function(event) {
+                        //         event.stopPropagation();
+                        //     });
+                        //     view.on("drag", function(event) {
+                        //         event.stopPropagation();
+                        //     });
+                        //     view.on("drag", ["Shift"], function(event) {
+                        //         event.stopPropagation();
+                        //     });
+                        //     view.on("drag", ["Shift", "Control"], function(event) {
+                        //         event.stopPropagation();
+                        //     });
+                        //     return view;
+                        // }
+        
+                 
+                           
+                        //view.popup.autoCloseEnabled=false;
+                       // view.popup.visible = true;
+                       //view.popup.location = event.mapPoint;
+                    //    var zoomOutAction = {
+                    //     // This text is displayed as a tooltip
+                    //     title: "Zoom out",
+                    //     // The ID used to reference this action in the event handler
+                    //     id: "zoom-out",
+                    //     // Sets the icon font used to style the action button
+                    //     className: "esri-icon-zoom-out-magnifying-glass"
+                    //    };
+                   // console.log(event.mapPoint);
+                    //view.popup.visible = true;
+                    //view.popup.dockEnabled = true;
+                    
+                     //view.popup.actions.push(zoomOutAction);
+        
+                    // Fires each time an action is clicked
+                    //  view.popup.viewModel.on("trigger-action", function(event){
+                    //      // If the zoom-out action is clicked, than execute the following code
+                    //      if(event.action.id === "zoom-out"){
+                    //          // Zoom out two levels (LODs)
+                    //          view.goTo({
+                    //              center: view.center,
+                    //              zoom: view.zoom - 2
+                    //          });
+                    //      }
+                    //  });           
+      
+    
+        //Onclick on the marker find the coordinates
+        // view.on("double-click", function (event) { 
+        //     console.log("@@@@@@@@@@ first view.on click");
+        //     var opts = {
+        //                 duration: 2000, 
+        //                 easing: "linear "  
+        //             };
+        //             view.goTo({
+        //                         zoom: view.zoom + 5,
+        //                         center: 
+        //                                 view.toMap({ x: event.x, y: event.y })
+        //             },opts); 
+        // });
+        // view.when(self.disableZooming); 
+                        
+               // var lGreenInstensityFlag=false;
+                // if(self.state.sSingleDisasterTypeDataRecord.intensity === 'Green')
+                // {
+                    // console.log("i am inside green intensity if",self.state.sSingleDisasterTypeDataRecord.intensity);
+                    // view.popup.autoCloseEnabled=false;
+                    // view.popup.visible = true;
+                    // view.popup.open(popUpTemplate);    
+                    // lGreenInstensityFlag=true;  
+                // }//else
+                // else
+                // {
+                    
+                   // console.log("i am inside green intensity else",self.state.sSingleDisasterTypeDataRecord.intensity);
+                    //if(!lGreenInstensityFlag){
+                   
+                    // window.addEventListener("mouseup",function(event)
+                    // {  
+                    //     if (gActionFlag)
+                    //         ReactDOM.render(
+                    //                 <AffectedAreaMap  
+                    //                    // key={self.props.buttonClick}
+                    //                     latitude={self.state.sLatitude} 
+                    //                     longitude={self.state.sLongitude} 
+                    //                     mapcolor ={self.state.sMapcolor}
+                    //                     DisasterDataArray = {gDisasterDataArray}
+                    //                     SingleDisasterDataRecord={self.state.sSingleDisasterTypeDataRecord}
+                    //             />,document.getElementById('DisasterTypeView'));
+                    // });//window.addEventListener 
+                    //}
+                    
+                //}
+               
+
   
     renderMap() 
     {   

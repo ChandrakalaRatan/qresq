@@ -28,13 +28,39 @@
   padding: 0;
   height: 100%;
   width:300px;
+  display: flex;
   color: white;
   text-decoration: none;
   font-size: 3rem;
   display: flex;
   background-color: rgb(43, 40, 40);
- 
 }
+.toolbar__logo {
+  width: 150px;
+  height: 100%;
+  display: flex;
+}
+.resq__logo_img{
+  margin-left: 10px;
+  width: 40px;
+  height: 50px;
+  margin-top: 10px;
+  display: inline-block;
+}
+.resq__logo_label-div{
+  width: 100px;
+  margin-top: 0px;
+  /* position: absolute; */
+  display: inline-block;
+}
+.resq__logo_label{
+  margin: top;
+  color: white; 
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+
 .resq-disastertype,
 .resq-daterange{
   margin-top: -60px;
@@ -87,25 +113,25 @@
   width: 130px;
 }
   .one-month-button{
-    color: rgb(156, 96, 196);
+    color: white;
   }
   .one-week-button{
-    color: rgb(156, 96, 196);
+    color: white;
   }
   .all-button{
-  color: white;
+    color: white;
   }
   .earthquake-button{
-  color: yellow;
+    color: white;
   }
   .flood-button{
-  color: blue;
+    color: white;
   }
   .storm-button{
-  color: orangered;
+    color: white;
   }
   .humanitarian-button{
-  color: green;
+    color: white;
   }
 
   .one-month-button:hover,
@@ -123,7 +149,7 @@
   .humanitarian-button:hover,
   .humanitarian-button:active
   {
-    color: white;
+    color: rgb(216, 78, 27);
     outline-color: rgb(43, 40, 40);
  }
 

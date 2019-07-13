@@ -58,7 +58,6 @@ renderMap(){
               layer8%2C
               layer10%2C24
               &embedded=true" ></iframe>
-               {/* this.props.glatitude, lng: this.props.glongitude */}
               </div>
           </div>
         ); 

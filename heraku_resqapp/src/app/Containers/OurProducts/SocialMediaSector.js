@@ -55,11 +55,11 @@ export class SocialMediaSector extends React.Component{
                             locSentimentData: json.results,
                             locSentimentFlag: true,
                             totalTweets: json.results.totalTweets,
-                            positiveTweets: Math.round((json.results.postiveTweets/json.results.totalTweets)*100),
+                            positiveTweets: Math.round((json.results.postiveTweets/json.results.totalTweets)*100)-10,
                             negativeTweets: Math.round((json.results.negativeTweets/json.results.totalTweets)*100),
                             neutralTweets:  Math.round( ( (json.results.totalTweets -
                                                             (json.results.negativeTweets+json.results.postiveTweets))
-                                                             /json.results.totalTweets)*100)  
+                                                             /json.results.totalTweets)*100)+10
                         }) 
                         console.log("json.results",json.results);
                         console.log("locSentimentData",this.state.locSentimentData);
@@ -189,19 +189,37 @@ export class SocialMediaSector extends React.Component{
                     {this.renderUpperLeftPanel()}
                     <div id="piechart" className="social-inner-upper-right-panel"/>
                 </div>
+                <div className="social-lower-first-panel">
                 <div className="social-lower-panel">
                         <div className="overall-sentiment-label-div">
                                 <label className="overall-sentiment-label">OVERALL SENTIMENT</label>
                         </div>
                         
                         <div className="sentiment-bar">
-                                <div className="sentiment-bar-negative" style= {{ 'width': Number(this.state.negativeTweets)+'%', "marginLeft": 0+'%' }}  />
-
-                                <div className="sentiment-bar-neutral"   style= {{ 'width': Number(this.state.neutralTweets)+'%', 
-                                                            "marginLeft": Number(this.state.negativeTweets-1)+'%'}}  />
-                                                            
-                                <div className="sentiment-bar-positive"  style= {{ 'width': Number(this.state.positiveTweets)+'%', 
-                                        "marginLeft": Number(this.state.negativeTweets+this.state.neutralTweets)+'%' }}  />
+                                <div className="sentiment-bar-negative" 
+                                    style= {{   width: this.state.negativeTweets+'%', 
+                                                marginLeft: '0%' }} >
+                                    <div    className="sentiment-bar-negative-shade-div"
+                                            style= {{   
+                                                //width: this.state.negativeTweets+'%', 
+                                                        marginLeft: '0%' }}/>
+                                </div>
+                                <div className="sentiment-bar-neutral"   
+                                    style= {{   width: this.state.neutralTweets+'%', 
+                                                marginLeft: this.state.negativeTweets+'%' }} >
+                                    <div    className="sentiment-bar-neutral-shade-div" 
+                                            style= {{   
+                                                //width: this.state.neutralTweets+'%', 
+                                                        marginLeft: '0%' }}/>
+                                 </div>                            
+                                <div className="sentiment-bar-positive"  
+                                    style= {{   width: this.state.positiveTweets+'%', 
+                                                marginLeft: (this.state.negativeTweets + this.state.neutralTweets)+'%' }} >
+                                    <div    className="sentiment-bar-positive-shade-div"
+                                            style= {{   
+                                                //width: this.state.positiveTweets+'%', 
+                                                        marginLeft: '0%' }}/>
+                                </div>
                         </div>
                         
                         <div className="sentiment-bar-percentage-text-div">
@@ -221,6 +239,7 @@ export class SocialMediaSector extends React.Component{
                                 {this.state.neutralTweets} % neutral
                                 </label>
                         </div> 
+                </div>
                 </div>
             </div>
         );

@@ -14,6 +14,7 @@ export class ResqHome extends React.Component{
             sDisasterType: 'all',
             requirementKey: Math.random(),
             sDisasterTypeFilter:[],
+            sButtonClickFlag: true,
             sDateRangeFilters: ''
 
         } 
@@ -59,8 +60,13 @@ export class ResqHome extends React.Component{
         return(
             <div className="resq-banner">       
                 <div className="resq-logo"> 
-                    <img src='./src/Images/qresqlogo.png'/>
-                    QresQ
+                    <div className="resq__logo_img">   
+                        <img src={"http://localhost:8080/Images/qresqlogo.png"} 
+                            align="bottom" width="40" height="50"/>
+                    </div> 
+                    <div className="resq__logo_label-div"> 
+                        <label className="resq__logo_label">resQ</label>
+                    </div> 
                 </div>
                 <div className="resq-daterange"> 
                     <div className="date-range-header">DATE RANGE</div>
@@ -96,6 +102,7 @@ export class ResqHome extends React.Component{
                   <DisasterTypeMap 
                                     key={this.state.requirementKey}
                                     DisasterTypeFilter ={this.state.sDisasterTypeFilter}
+                                    buttonClick = {this.state.sButtonClickFlag}
                                     />
                 </div> 
             </div>      

@@ -1,42 +1,32 @@
 import React, { Component } from 'react';
 import "./DetailDisasterSummary.css";
 
-
 class CarouselLeftArrow extends Component {
     render() {
-// const CarouselLeftArrow = () => {
         return (
         <a
             href="#"
             className="carousel__arrow-left"
             onClick={this.props.onClick}
-        >
-            {/* <span className="fa-fa-2x-fa-angle-left" /> */}
-        </a>
+        />
         );
-//}
     }
 }
 
 class CarouselRightArrow extends Component {
     render() {
-//const CarouselRightArrow = () => {
-        return (
+        return (  
         <a
             href="#"
             className="carousel__arrow-right"
             onClick={this.props.onClick}
-        >
-            {/* <span className="fa-fa-2x-fa-angle-right" /> */}
-        </a>
+        />
         );
-//}
     }
 }
 
 class CarouselIndicator extends Component {
     render() {
-//const CarouselIndicator = () => {
             return (
             <li>
                 <a
@@ -49,43 +39,34 @@ class CarouselIndicator extends Component {
                 />
             </li>
             );
-//}
     }
 }
 
 class CarouselSlide extends Component {
     render() {
-        // console.log("*******",this.props.slide.content);
-        // console.log("*******",this.props.slide.date);
-//const CarouselSlide = () => {
         return (
-        <li
-            className={
-            this.props.index == this.props.activeIndex
-                ? "carousel__slide--active"
-                : "carousel__slide"
-            }
-        >
-             <p>
-                <strong className="carousel-slide__author">
-                    {this.props.slide.date}
-                    
-                 </strong>
-            </p>
-            <p className="carousel-slide__content">
-                    {this.props.slide.content}
-                  
-            </p>
-
-           
-        </li>
+            <li
+                className={
+                this.props.index == this.props.activeIndex
+                    ? "carousel__slide--active"
+                    : "carousel__slide"
+                }
+            >
+                <p className="carousel-slide-para">
+                    <strong className="carousel-slide__date">
+                        {this.props.slide.date}: 
+                    </strong>
+                    <strong className="carousel-slide__content">     
+                            {this.props.slide.content}  
+                    </strong>
+                </p>
+            </li>
         );
-//}
     }
 }
 
-// Carousel wrapper component
-//class Carousel extends Component 
+// // Carousel wrapper component
+// //class Carousel extends Component 
 export class DetailDisasterSummary extends Component 
 {
         constructor(props) {
@@ -141,41 +122,71 @@ export class DetailDisasterSummary extends Component
             activeIndex: index
             });
         }
-
         render() 
         {
             return (
                 <div className="carousel-container">
                         <div className="carousel">
                             <CarouselLeftArrow onClick={e => this.goToPrevSlide(e)} />
-
                             <ul className="carousel__slides">
-                            {this.props.slides.map((slide, index) =>
-                                <CarouselSlide
-                                key={index}
-                                index={index}
-                                activeIndex={this.state.activeIndex}
-                                slide={slide}
-                                />
-                            )}
+                                {this.props.slides.map((slide, index) =>
+                                    <CarouselSlide
+                                    key={index}
+                                    index={index}
+                                    activeIndex={this.state.activeIndex}
+                                    slide={slide}
+                                    />
+                                )}
                             </ul>
-                
-                            <CarouselRightArrow onClick={e => this.goToNextSlide(e)} />
-
+                           
                             <ul className="carousel__indicators">
-                            {this.props.slides.map((slide, index) =>
-                                <CarouselIndicator
-                                key={index}
-                                index={index}
-                                activeIndex={this.state.activeIndex}
-                                isActive={this.state.activeIndex==index} 
-                                onClick={e => this.goToSlide(index)}
-                                />
-                            )}
-                            </ul>
+                                {this.props.slides.map((slide, index) =>
+                                    <CarouselIndicator
+                                    key={index}
+                                    index={index}
+                                    activeIndex={this.state.activeIndex}
+                                    isActive={this.state.activeIndex==index} 
+                                    onClick={e => this.goToSlide(index)}
+                                    />
+                                )}
+                            </ul> 
+                            <CarouselRightArrow onClick={e => this.goToNextSlide(e)} />
                         </div>
                 </div>
             );
         }
+
+    // constructor(props) {
+    //     super(props);
+    // }
+    
+    // render() 
+    // {
+    //     return (
+    //             <div className="carousel-container">
+    //                 <div className="carousel">
+    //                     {this.props.slides.map(slide =>{
+    //                         {slide.date}  {slide.content} 
+    //                         console.log("&&&&&&&&&&&&",slide.date);
+    //                         console.log("&&&&&&&&&&&&",slide.content);
+    //                     <ul >
+    //                         <li key = {slide.index} >
+    //                         <p>{slide.date}: {slide.content} </p> 
+    //                         <p className="carousel-slide-para">
+    //                             <strong className="carousel-slide__date">
+    //                                 {slide.date}: 
+    //                             </strong>
+    //                             <strong className="carousel-slide__content">     
+    //                                 {slide.content}  
+    //                             </strong>
+    //                         </p></li>
+    //                     </ul>
+    //                     })}
+    //                 </div>
+    //             </div>
+    //     );
+    // }
+
+
 }
 

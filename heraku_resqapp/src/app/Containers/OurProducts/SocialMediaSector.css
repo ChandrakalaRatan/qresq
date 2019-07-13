@@ -1,39 +1,56 @@
 .social-panel {
     position: absolute;
-    left:12%;
-    top: 12%;
-    width: 80%;
-    height: 550px;
-    background-color: transparent;
+    left:22%;
+    top: 22%;
+    width: 75%;
+    height: 560px;
+    background-color: black;
+  }
+  .social-lower-first-panel{
+    position: absolute;
+    margin-top: 39%;
+    width: 100%;
+    height: 25%;
+    background-color: rgba(87, 78, 78, 0.308);
+    display: inline-block;
   }
   .social-lower-panel{
-    width: 100%;
-    height: 23%;
-    margin-top: 0%;
-    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    width: 96%;
+    height: 76%;
+    margin: 2%;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    background-color: rgba(87, 78, 78, 0.308);
     display: inline-block;
   }
   .social-upper-panel{
+    position: absolute;
     width: 100%;
     height: 75%;
     display: inline-block;
-    background-color: white;
+    background-color: rgba(87, 78, 78, 0.308);
   }
   .social-inner-upper-right-panel{
-    margin-top: 0%;
-    padding: 0%;
-    width: 40%;
-    height: 75%;
     display: inline-block;
-    background-color: transparent;
     position: absolute;
+    margin: 2%;
+    margin-top: 2%;
+    margin-left: 0%;
+    margin-bottom: 1%;
+    width: 46%;
+    height: 95%;
+    background-color:rgba(53, 51, 51, 0.308);
   } 
   .social-inner-upper-left-panel{
-    margin-top: 0%;
-    width: 60%;
-    height: 75%;
+    margin: 2%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    width: 48%;
+    height: 95%;
+  
     display: inline-block;
-    background-color: transparent;
+    background-color: rgba(53, 51, 51, 0.308);
     
     /* background-color: rgb(71, 149, 212); */
   }
@@ -44,32 +61,34 @@
     margin-top: 0%;
     padding: 0%;
     width: 100%;
-    height: 40%; 
+    height: 30%; 
     display: inline-block;
     background-color: transparent;
   }
   .total-mention-text-div{
     width: 100%;
-    height: 10%;
+    height: 18%;
     margin-top: 2%;
     padding: 0%;
     display: inline-block;
     background-color: transparent;
   }
   .total-mention-text{
-    margin-left:60px;
+    margin-left:40px;
     margin-top: 0px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgba(0, 0, 0, 0.6);
+    color: white;
   }
   .total-mention-value-div{
     width: 200px;
     height: 50px;
-    margin-left:60px;
+    margin-left:40px;
     margin-top:10px;
     /* background-color: rgb(167, 150, 150); */
-    background-color:rgba(0, 0, 0, 0.6);
+    background-color:	#3E766D;
+    outline-color: white;
+    outline-style: outset;
     text-align: center;
     
   }
@@ -88,10 +107,10 @@
     background-color: transparent;
   }
   .overall-mention-label{
-    margin-left:60px;
+    margin-left:40px;
     font-size: 1.2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgba(0, 0, 0, 0.6);
+    color: white;
   }
   /*  OVERALL MENTIONS*/
 
@@ -99,7 +118,7 @@
 /* OVERALL MENTIONS BUTTONs */
   .blog-twitter-news-forum-button-div{
     width: 100%;
-    height: 80%;
+    height: 60%;
     margin: 0;
     display: inline-block;
     background-color: transparent;
@@ -108,10 +127,9 @@
   .news-div,
   .twitter-div,
   .forum-div{
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 45%;
     margin: 0;
-    display: inline-block;
     background-color: transparent;
   }
   .twitter-label-div,
@@ -125,16 +143,16 @@
   }
   .twitter-label-div,
   .blog-label-div{
-    margin-left:60px;
+    margin-left:40px;
   }
   .news-label-div,
   .forum-label-div{
-    margin-left:0px;
+    margin-left:40px;
   }
   .button-header-text{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1.2em;
-    color: rgba(0, 0, 0, 0.6);
+    font-size: 1em;
+    color: white;
   }
  
   .blog-button-div,
@@ -146,25 +164,26 @@
     height: 55px;
     display: inline-block;
     position: absolute;
+    
   }
-  .blog-button-div{
+  /* .blog-button-div{
     margin-left:60px;
     background-color: rgb(221, 129, 129);
-  }
+  } */
   .twitter-button-div{
-    margin-left:60px;
-    background-color: rgb(152, 183, 230);
+    margin-left:40px;
+    background-color:#00C78C;
   }
-  .forum-button-div{
+  /* .forum-button-div{
     margin-left:0px;
     background-color: rgb(164, 235, 170);
-  }
+  } */
   .news-button-div{
-    margin-left:0px;
-    background-color: rgb(236, 235, 150);
+    margin-left:40px;
+    background-color: #36DBCA;
   }
   .button{
-    margin-left:60px;
+    margin-left:40px;
     margin-top:15px;
     width: 200px;
     height: 55px;
@@ -173,7 +192,7 @@
     background-color: transparent;
   }
   .button1{
-    margin-left:0px;
+    margin-left:40px;
     margin-top:15px;
     width: 200px;
     height: 55px;
@@ -191,37 +210,23 @@
     height: 55px;
     display: inline-block;
     position: absolute; 
-    
-    /* -webkit-transition: width 3s; 
-    transition: width 3s; */
-    animation: slidein 5s;
-    animation-iteration-count: 1;
+  
+    animation: slideforward 10s;
+    animation-iteration-count: infinite;
     animation-fill-mode: forwards;
   }
-  .blog-shade-div{
+  /* .blog-shade-div{
     background-color: rgba(247, 39, 39, 0.945);
   }
   .forum-shade-div{
     background-color: rgb(0, 228, 19);
-  }
+  } */
   .twitter-shade-div{
-    background-color: rgb(59, 137, 255);
+    background-color: rgba(39, 119, 108, 0.993);
   }
   .news-shade-div{
-    background-color: rgb(243, 227, 0);
+    background-color:  rgba(36, 43, 43, 0.616);
   }
-
-@keyframes slidein {
-  from {
-    margin-right: 100%;
-    width: 0%;
-  }
-
-  to {
-    margin-right: 0%;
-  }
-}
-
   .percentage1-div,
   .label-div{
     height: 55px;
@@ -249,7 +254,7 @@
     .overall-sentiment-label-div{
       width: 90%;
       height: 25%;
-      margin-left: 60px;
+      margin-left: 40px;
       margin-top: 10px;
       vertical-align: 1cm;
       text-align: left;
@@ -261,39 +266,76 @@
           color: whitesmoke;
         }
     .sentiment-bar{
-      width: 90%;
+      width: 930px;
       height: 15%;
-      margin-left: 60px;
-      float: left;
-      background-color: white;
+      margin-top:0%;
+      margin-left: 40px;
+      background-color: #E0FFFF;
+      display: inline-block;
+      position: relative; 
     }
         .sentiment-bar-negative{
-          position: relative;
           height: 100%;
           margin-top:0%;
-          float: left;
-          background-color: rgb(156, 143, 143);
-       
+          background-color: transparent;
         }
         .sentiment-bar-neutral{
-          position: relative;
           height: 100%;
           margin-top:0%;
-          float: left;
           background-color: transparent;
         }
         .sentiment-bar-positive{
-          position: relative;
           height: 100%;
-          margin-top:-1.4%;
-          float: left;
-          background-color: rgba(92, 95, 100, 0.911);
+          margin-top:-3.4%;
+          background-color: transparent;
         }
+
+
+  .sentiment-bar-negative-shade-div,
+  .sentiment-bar-neutral-shade-div,
+  .sentiment-bar-positive-shade-div{
+    margin-left:0%;
+    margin-top:0%;
+    height: 100%;
+  }
+  .sentiment-bar-negative-shade-div{
+    background-color:#00C78C;
+     animation: slideforward 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slideforward {
+    from {
+      margin-right: 100%;
+    }
+  
+    to {
+      margin-right:0%;
+    }
+  }
+  .sentiment-bar-neutral-shade-div{
+    background-color:  transparent;
+  }
+  .sentiment-bar-positive-shade-div{
+    background-color:   #36DBCA;
+     animation: slidebackward 10s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+@keyframes slidebackward{
+  from {
+    margin-left: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}
 
     .sentiment-bar-percentage-text-div{
       width: 90%;
       height: 15%;
-      margin-left:60px;
+      margin-left:40px;
       margin-top:0px;
       display: inline-block;
       background-color: transparent;
@@ -329,7 +371,7 @@
   .sentiment-description-text-div{
         width: 90%;
         height: 5%;
-        margin-left:60px;
+        margin-left:40px;
         background-color: transparent;
   }
           .sentiment-description-text{

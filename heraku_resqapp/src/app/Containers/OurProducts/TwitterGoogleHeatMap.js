@@ -19,8 +19,8 @@ const styles =  {
         }
   }
   var heatMapData =[];
-  var loclatitude =0;
-  var loclongitude =0;
+  var glatitude =0;
+  var glongitude =0;
 
 export class TwitterGoogleHeatMap extends Component 
 {
@@ -47,11 +47,11 @@ export class TwitterGoogleHeatMap extends Component
                     .then(json => {
                         console.log("tweetsByLatLonFetch",json.results);
                         json.results.map(heatmapdata =>{
-                            loclatitude = heatmapdata.geoLocation.lat;
-                            loclongitude = heatmapdata.geoLocation.lon;
+                            glatitude = heatmapdata.geoLocation.lat;
+                            glongitude = heatmapdata.geoLocation.lon;
                             heatMapData.push({
-                                location: new google.maps.LatLng(Number(loclatitude), 
-                                                                 Number(loclongitude)), 
+                                location: new google.maps.LatLng(Number(glatitude), 
+                                                                 Number(glongitude)), 
                                 weight: heatmapdata.totalTweets});
                             
                         })
@@ -67,16 +67,25 @@ export class TwitterGoogleHeatMap extends Component
         }
        
         initMap = () =>{
+            //var randomPoint =new google.maps.LatLng( glatitude , glongitude);
+
+            //var bounds  = new google.maps.LatLngBounds();
             var map = new window.google.maps.Map(document.getElementById('googleheatmap'), {
-                center: {lat: loclatitude, lng: loclongitude },
+                center: {lat: glatitude, lng: glongitude },
+               // position: randomPoint,
                 zoom: 6,
                 styles: googleHeatMapStyleConst
             })
-            console.log('#####loclatitude',loclatitude,'loclongitude',loclongitude, JSON.stringify(googleHeatMapStyleConst));
+            console.log('#####glatitude',glatitude,'glongitude',glongitude, JSON.stringify(googleHeatMapStyleConst));
             var heatmap = new google.maps.visualization.HeatmapLayer({
                 data: heatMapData,
             });
-            heatmap.setMap(map);         
+            heatmap.setMap(map);  
+
+           // bounds.extend(map.position);
+
+            // map.fitBounds(bounds);  
+            // map.panToBounds(bounds);      
         }
         renderMap = () => {
             //loadScritpt("https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBlnYj0D5PuFnI_iopaie_z9GpKGKN3VAY&callback=initMap")

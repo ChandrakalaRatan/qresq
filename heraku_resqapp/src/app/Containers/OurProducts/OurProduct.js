@@ -2,10 +2,6 @@ import React from "react";
 import {Button} from 'reactstrap';
 import './OurProduct.css';
 
-import drawBarChart from "./TwitterBarChart";
-import {TwitterHeatMap} from "./TwitterHeatMap";
-import drawPieChart from "./SocialMediaPieChart";
-
 export class OurProduct extends React.Component{
     constructor(props) {
         super(props);

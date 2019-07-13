@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import "./TwitterSocialPage.css";
 
-import drawBarChart from "./TwitterBarChart";
-import drawWordCloud from "./TwitterWordCloud";
+//import drawBarChart from "./TwitterBarChart";
+import drawBarChart from "./TwitterScrollableBarChart";
+import drawWordCloud from "./TwitterAnimatedWordCloud";
 
 
 
@@ -96,7 +97,7 @@ export class TwitterSocialPage extends React.Component{
         console.log("entering barChartFetch TWITTERSOCIALPAGE");
         const endPoint =   "http://167.86.104.221:8050/api/dasboard/tweetTrending?index=twitter_social&eventId="
                             // +this.props.SingleDisasterDataRecord.qresqid;
-                            +"999";
+                            +"999"+"&groupBy=DAY";
             fetch(endPoint,{
                 headers: {
                             'Accept': 'application/json',
@@ -154,35 +155,69 @@ export class TwitterSocialPage extends React.Component{
         const barchartselector = document.getElementById('barchart'); 
         var wordCloudJsonData =[];
         var barChartJsonData =[];
-        this.state.locTwitterWorldCloudData.map(data =>{
+        this.state.locTwitterWorldCloudData.map(jsondata =>{
             
-                if(data.totalTweets > 0 && data.totalTweets <= 1000)
+                if(jsondata.totalTweets > 0 && jsondata.totalTweets <= 1000)
                 {
                     wordCloudJsonData.push({
-                        text: data.word,
-                        totalTweets: data.totalTweets,
-                        size: 24
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
+                        size: 14
                     })
                     
                 }
-                else if(data.totalTweets > 1000 && data.totalTweets <= 5000){
+                else if(jsondata.totalTweets > 1000 && jsondata.totalTweets <= 2000){
                     wordCloudJsonData.push({
-                        text: data.word,
-                        totalTweets: data.totalTweets,
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
+                        size: 18
+                    })
+                    
+                }
+                else if(jsondata.totalTweets > 2000 && jsondata.totalTweets <= 3000){
+                    wordCloudJsonData.push({
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
+                        size: 22
+                    })
+                    
+                }
+                else if(jsondata.totalTweets > 3000 && jsondata.totalTweets <= 4000){
+                    wordCloudJsonData.push({
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
+                        size: 26
+                    })
+                    
+                }
+                else if(jsondata.totalTweets > 4000 && jsondata.totalTweets <= 5000){
+                    wordCloudJsonData.push({
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
+                        size: 30
+                    })
+                    
+                }
+                else if(jsondata.totalTweets > 5000 && jsondata.totalTweets <= 6000){
+                    wordCloudJsonData.push({
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
                         size: 34
                     })
                     
                 }
-                else if(data.totalTweets > 5000 && data.totalTweets <= 10000){
+                else if(jsondata.totalTweets > 6000 && jsondata.totalTweets <= 10000){
                     wordCloudJsonData.push({
-                        text: data.word,
-                        totalTweets: data.totalTweets,
-                        size: 44
+                        text: jsondata.word,
+                        totalTweets: jsondata.totalTweets,
+                        size: 38
                     })
                 }
         });
  
         if(this.state.locTwitterWorldCloudFlag === true){ 
+            
+            console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",wordCloudJsonData);
             drawWordCloud(wordCloudJsonData, wordcloudselector);
             this.setState({
                 locTwitterWorldCloudFlag: false
@@ -207,38 +242,39 @@ export class TwitterSocialPage extends React.Component{
                 <div className="tweet-inner-upper-container">
                     <div id="wordcloud" className="tweet-inner-upper-container-subpanel1"/>
 
-                    <div id="barchart" className="tweet-inner-upper-container-subpanel2" />
+                    <div id="barchart" className="tweet-inner-upper-container-subpanel2" >
+                        {/* <div id="subBar" className="tweet-inner-upper-container-subpanel2-subBar" /> */}
+                    </div>>
 
                 </div>
-
-                <div className="tweet-inner-lower-container">
-                    <div className="tweet-panel">
-                        <div className="tweet-panel-div1">
-                            <div className="tweet-text-div">
-                                <label className="tweet-total-text">TOTAL TWEETS</label>
+                    <div className="tweet-inner-lower-container">
+                        <div className="tweet-panel">
+                            <div className="tweet-panel-div1">
+                                <div className="tweet-text-div">
+                                    <label className="tweet-total-text">TOTAL TWEETS</label>
+                                </div>
+                                <div className="tweet-value-div">
+                                    <label className="tweet-total-value">{this.props.totalTweets}</label>
+                                </div>
                             </div>
-                            <div className="tweet-value-div">
-                                <label className="tweet-total-value">{this.props.totalTweets}</label>
+                            <div className="tweet-panel-div2">
+                                <div className="tweet-text-div">
+                                    <label className="tweet-day-text" >TWEETS/DAY</label>
+                                </div>
+                                <div className="tweet-value-div">
+                                    {/* <label className="tweet-day-value">{this.state.locTweetsPerDayData}</label>  */}
+                                </div>
                             </div>
-                        </div>
-                        <div className="tweet-panel-div2">
-                            <div className="tweet-text-div">
-                                <label className="tweet-day-text" >TWEETS/DAY</label>
-                            </div>
-                            <div className="tweet-value-div">
-                                {/* <label className="tweet-day-value">{this.state.locTweetsPerDayData}</label>  */}
-                            </div>
-                        </div>
-                        <div className="tweet-panel-div3">
-                            <div className="tweet-text-div">
-                                <label className="tweet-hour-text">TWEETS/HOUR </label>
-                            </div>
-                            <div className="tweet-value-div">
-                                {/* <label className="tweet-hour-value">{this.state.locTweetsPerHourData}</label>  */}
+                            <div className="tweet-panel-div3">
+                                <div className="tweet-text-div">
+                                    <label className="tweet-hour-text">TWEETS/HOUR </label>
+                                </div>
+                                <div className="tweet-value-div">
+                                    {/* <label className="tweet-hour-value">{this.state.locTweetsPerHourData}</label>  */}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         );
     }
